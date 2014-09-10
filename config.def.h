@@ -42,9 +42,10 @@ static Bool allowgeolocation = TRUE;
 /* DOWNLOAD(URI, referer) */
 #define DOWNLOAD(d, r) { \
 	.v = (char *[]){ "/bin/sh", "-c", \
+    "cd ~/Downloads;" \
 		"st -e /bin/sh -c \"aria2c -U '$1'" \
-		" --referer '$2' -b $3 -c $3 '$0';" \
-		" sleep 5;\"", \
+		" --referer '$2' --load-cookies $3 --save-cookies $3 '$0';" \
+		" sleep 3;\"", \
 		d, useragent, r, cookiefile, NULL \
 	} \
 }
