@@ -1,18 +1,3 @@
-diff --git a/config.def.h b/config.def.h
-index 8185136..6b5144c 100644
---- a/config.def.h
-+++ b/config.def.h
-@@ -101,3 +101,10 @@ static Key keys[] = {
-     { MODKEY|GDK_SHIFT_MASK,GDK_b,      togglescrollbars,{ 0 } },
-     { MODKEY|GDK_SHIFT_MASK,GDK_g,      togglegeolocation, { 0 } },
- };
-+
-+static SearchEngine searchengines[] = {
-+  { "g",        "http://www.google.de/search?q=%s"   },
-+  { "en",       "http://dict.cc/?s=%s" },
-+  { "ug",       "http://%s.uni-goettingen.de" },
-+  { "dict",     "http://www.thefreedictionary.com/%s" },
-+};
 diff --git a/surf.c b/surf.c
 index da84e1c..7eff5e8 100644
 --- a/surf.c
@@ -69,3 +54,18 @@ index da84e1c..7eff5e8 100644
  static void
  pasteuri(GtkClipboard *clipboard, const char *text, gpointer d) {
  	Arg arg = {.v = text };
+diff --git a/config.def.h b/config.def.h
+index 80a0feb..d9bc8a9 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -103,3 +103,10 @@ static Key keys[] = {
+     { MODKEY|GDK_SHIFT_MASK,GDK_g,      togglegeolocation, { 0 } },
+ };
+ 
++static SearchEngine searchengines[] = {
++  { "g",        "http://www.google.de/search?q=%s"   },
++  { "en",       "http://dict.cc/?s=%s" },
++  { "ug",       "http://%s.uni-goettingen.de" },
++  { "dict",     "http://www.thefreedictionary.com/%s" },
++};
++
