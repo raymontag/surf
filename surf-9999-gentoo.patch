@@ -1,5 +1,5 @@
---- a/config.mk	2013-02-10 19:40:14.000000000 +0100
-+++ b/config.mk	2013-10-04 16:11:28.773331797 +0200
+--- a/config.mk
++++ b/config.mk
 @@ -4,27 +4,27 @@
  # Customize below to fit your system
  
@@ -16,14 +16,14 @@
  
 -GTKINC = `pkg-config --cflags gtk+-2.0 webkit-1.0`
 -GTKLIB = `pkg-config --libs gtk+-2.0 webkit-1.0`
-+GTKINC = $(shell $(PKG_CONFIG) --cflags gtk+-2.0 webkit-1.0)
-+GTKLIB = $(shell $(PKG_CONFIG) --libs gtk+-2.0 webkit-1.0)
++GTKINC = $(shell $(PKG_CONFIG) --cflags gtk+-2.0 gthread-2.0 webkit-1.0)
++GTKLIB = $(shell $(PKG_CONFIG) --libs gtk+-2.0 gthread-2.0 webkit-1.0)
  
  # includes and libs
 -INCS = -I. -I/usr/include -I${X11INC} ${GTKINC}
 -LIBS = -L/usr/lib -lc -L${X11LIB} -lX11 ${GTKLIB} -lgthread-2.0
 +INCS = -I. -I/usr/include $(X11INC) $(GTKINC)
-+LIBS = $(X11LIB) $(GTKLIB) -lgthread-2.0
++LIBS = $(X11LIB) $(GTKLIB)
  
  # flags
 -CPPFLAGS = -DVERSION=\"${VERSION}\" -D_BSD_SOURCE
@@ -42,8 +42,8 @@
  # compiler and linker
 -CC = cc
 +CC ?= gcc
---- a/Makefile	2013-02-10 19:40:14.000000000 +0100
-+++ b/Makefile	2013-10-04 16:05:02.230549420 +0200
+--- a/Makefile
++++ b/Makefile
 @@ -4,58 +4,58 @@
  include config.mk
  
