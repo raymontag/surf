@@ -63,9 +63,9 @@ index 80a0feb..d9bc8a9 100644
  };
  
 +static SearchEngine searchengines[] = {
-+  { "g",        "http://www.google.de/search?q=%s"   },
++  { "g",        "https://www.google.de/search?q=%s"   },
 +  { "en",       "http://dict.cc/?s=%s" },
-+  { "ug",       "http://%s.uni-goettingen.de" },
++  { "s",        "https://startpage.com/do/search?q=%s" },
 +  { "dict",     "http://www.thefreedictionary.com/%s" },
 +};
 +
