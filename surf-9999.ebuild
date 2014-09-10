@@ -45,11 +45,11 @@ pkg_setup() {
 }
 
 src_prepare() {
+	restore_config config.h
 	epatch ${P}-gentoo.patch
 	epatch surf-0.6-searchengines.diff
 	epatch surf-0.6-bookmarks.diff
 	epatch_user
-	restore_config config.h
 	tc-export CC PKG_CONFIG
 }
 
